@@ -12,11 +12,11 @@ export class AlertifyService {
   success(message:string){
     alertify.success(message)
   }
-  deleted(message:string){
-    alertify.deleted(message)
+  error(message:string){
+    alertify.error(message)
   }
-  updated(message:string){
-    alertify.updated(message)
+  warning(message:string){
+    alertify.warning(message)
   }
 }
 
