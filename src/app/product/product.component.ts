@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './product';
+declare let alertify:any;
 
 @Component({
   selector: 'app-product',
@@ -20,5 +21,7 @@ export class ProductComponent implements OnInit {
   
   ngOnInit() {
   }
-
+addToCart(product){
+  alertify.success("eklendi : "+product.name)
+}
 }
