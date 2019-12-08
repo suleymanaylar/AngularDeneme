@@ -30,7 +30,7 @@ export class ProductService {
   getProducts(categoryId): Observable<Product[]> {
     let newPath = this.path
     if (categoryId) {
-      newPath += "?id=" + categoryId
+      newPath += "?categoryId=" + categoryId
     }
     return this.http
       .get<Product[]>(newPath).pipe(
