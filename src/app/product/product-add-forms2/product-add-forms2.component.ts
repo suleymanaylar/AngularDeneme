@@ -1,18 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Product } from '../product';
+import { Category } from 'src/app/category/category';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
+import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
   selector: 'app-product-add-forms2',
   templateUrl: './product-add-forms2.component.html',
-  styleUrls: ['./product-add-forms2.component.css']
+  styleUrls: ['./product-add-forms2.component.css'],
+  providers:[CategoryService,ProductService,AlertifyService]
 })
 export class ProductAddForms2Component implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+    private categoryService:CategoryService,
+    private productService:ProductService,
+    private alertifyService:AlertifyService
+    ) { }
 
   productAddForm: FormGroup;
   product: Product = new Product;
+  categories: Category[];
+
 
   createProductAddForm() {
 
@@ -22,17 +33,24 @@ export class ProductAddForms2Component implements OnInit {
       imageUrl: ["", Validators.required],
       price: ["", Validators.required],
       categoryId: ["", Validators.required]
-    })
+    });
   }
-  
+
   add() {
     if (this.productAddForm.valid) {
-      this.product = Object.assign({}, this.productAddForm.value)
+      this.product = Object.assign({}, this.productAddForm.value);
     }
+    this.productService.addProduc(this.product).subscribe(data=>{
+      this.alertifyService.success(data.name+" başarıyla Eklendi.")
+    })
   }
 
 
   ngOnInit() {
+    this.createProductAddForm();
+    this.categoryService.getCategories().subscribe(data => {
+      this.categories = data;
+    })
   }
-
+   
 }

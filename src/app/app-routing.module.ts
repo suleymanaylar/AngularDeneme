@@ -7,11 +7,11 @@ import { ProductAddForms2Component } from './product/product-add-forms2/product-
 
 
 const routes: Routes = [
-  {path:'products',component:ProductComponent},
-  {path:'products-add-1',component:ProductAddForms1Component},
-  {path:'products-add-2',component:ProductAddForms2Component},
-  {path:'',redirectTo:'products',pathMatch:'full'},
-  {path:'products/category/:categoryId',component:ProductComponent}
+  { path: 'products', component: ProductComponent },
+  { path: 'products-add-1', component: ProductAddForms1Component },
+  { path: 'products-add-2', component: ProductAddForms2Component },
+  { path: '', redirectTo: 'products', pathMatch: 'full' },
+  { path: 'products/category/:categoryId', component: ProductComponent }
 ];
 
 @NgModule({
