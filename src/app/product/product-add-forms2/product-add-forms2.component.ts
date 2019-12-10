@@ -36,6 +36,13 @@ export class ProductAddForms2Component implements OnInit {
     });
   }
 
+  ngOnInit() {
+    this.createProductAddForm();
+    this.categoryService.getCategories().subscribe(data => {
+      this.categories = data;
+    })
+  }
+  
   add() {
     if (this.productAddForm.valid) {
       this.product = Object.assign({}, this.productAddForm.value);
@@ -45,12 +52,5 @@ export class ProductAddForms2Component implements OnInit {
     })
   }
 
-
-  ngOnInit() {
-    this.createProductAddForm();
-    this.categoryService.getCategories().subscribe(data => {
-      this.categories = data;
-    })
-  }
    
 }

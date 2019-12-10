@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { SelectControlValueAccessor } from '@angular/forms';
 declare let alertify:any;
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AlertifyService {
 
   constructor() { }
