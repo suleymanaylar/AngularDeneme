@@ -8,7 +8,8 @@
           <span data-feather="file"></span>
           Ürün Ekle / Reactive Form
         </a> -->
-        <a class="nav-link" routerLink="/login">Login</a>
+        <a *ngIf="isloggin()==false" class="nav-link" routerLink="/login">Login</a>
+        <a *ngIf="isloggin()==true" (click)="logout()" class="nav-link" >Log Out</a>
       </li>
     </ul>
   </nav>
