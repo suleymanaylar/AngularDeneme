@@ -14,6 +14,8 @@ import { LoginComponent } from './login/login.component';
 import { AlertifyService } from './services/alertify.service';
 import { AcoountService } from './services/acoount.service';
 import { LoginGuard } from './login/login.guard';
+import { ListProductComponent } from './list-product/list-product.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 @NgModule({
   declarations: [
@@ -24,14 +26,16 @@ import { LoginGuard } from './login/login.guard';
     ProductFilterPipe,
     ProductAddForms1Component,
     ProductAddForms2Component,
-    LoginComponent
+    LoginComponent,
+    ListProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   providers: [AlertifyService,AcoountService,LoginGuard],
   bootstrap: [AppComponent]

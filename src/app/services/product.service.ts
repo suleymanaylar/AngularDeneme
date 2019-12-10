@@ -47,4 +47,12 @@ export class ProductService {
     }
     return throwError(errorMessage);
   }
+
+  getProduct(): Observable<Product[]> {
+   return this.http
+      .get<Product[]>(this.path).pipe(
+        tap(data => JSON.stringify(data)),
+        catchError(this.handleError)
+      );
+  }
 }
